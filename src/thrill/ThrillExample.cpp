@@ -24,12 +24,12 @@ void WordCountExample(Context &ctx) {
 }
 
 int main(int argc, char *argv[]) {
-    putenv("THRILL_WORKERS_PER_HOST=1");
-    putenv("THRILL_LOCAL=4");
+    putenv("THRILL_LOCAL=1");
+    putenv("THRILL_WORKERS_PER_HOST=4");
     auto start = std::chrono::steady_clock::now();
     Run(WordCountExample);
     auto end = std::chrono::steady_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
     std::cout << "Job took " << elapsed << " ms" << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }

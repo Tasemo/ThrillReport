@@ -20,7 +20,7 @@ public final class FlinkExample {
                 })
                 .groupBy(0)
                 .sum(1)
-                .writeAsText(Path.of("data/flink").toAbsolutePath().toString());
+                .writeAsText(Path.of("data/flink").toUri().toString());
         long start = System.currentTimeMillis();
         env.execute();
         long elapsed = System.currentTimeMillis() - start;
